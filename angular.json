@@ -24,9 +24,19 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/pivottable/dist/pivot.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/jquery-ui-dist/jquery-ui.min.js",
+              "node_modules/plotly.js-dist/plotly.js",
+              "node_modules/pivottable/dist/pivot.min.js",
+              "node_modules/pivottable/dist/export_renderers.min.js",
+              "node_modules/pivottable/dist/plotly_renderers.min.js",
+              "node_modules/pivottable/dist/tips_data.min.js",
+              "node_modules/subtotal/dist/subtotal.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -123,3 +133,4 @@
     }},
   "defaultProject": "pivot-test"
 }
+

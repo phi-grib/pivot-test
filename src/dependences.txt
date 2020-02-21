@@ -1,0 +1,5 @@
+npm install plotly.js-dist --save
+npm install jquery --save
+npm install jquery-ui-dist --save
+npm install pivottable --save
+npm install subtotal --save
