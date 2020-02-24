@@ -24,6 +24,10 @@ The the required javascript files and the required order in which the should be 
 1. node_modules/pivottable/dist/tips_data.min.js (only contains test data)
 1. node_modules/subtotal/dist/subtotal.min.js
 
+Also the following CSS files are required:
+1. node_modules/pivottable/dist/pivot.min.css
+1. node_modules/subtotal/dist/subtotal.min.css
+
 For the implemantation examples check src/app/app.component.ts . 
 
 ## Development server

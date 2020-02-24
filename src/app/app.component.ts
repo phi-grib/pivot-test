@@ -23,6 +23,8 @@ export class AppComponent implements OnInit, AfterViewInit {
     this.http.get(url,{withCredentials: false}).subscribe(result => {
       let obj_rows: Object = {};
       let keys: Array<string> = Object.keys(result);
+      
+      //format conversion for 'assets/6193.json'
       keys.forEach(key => {
         Object.keys(result[key]).forEach((key_row) =>
         {
@@ -39,41 +41,45 @@ export class AppComponent implements OnInit, AfterViewInit {
           }
 
         });
-        let data: Array<Object> = [];
-        Object.keys(obj_rows).forEach((row) => {
-          data.push(obj_rows[row]);
-        });
-        (<any>$("#output")).pivotUI(
-          data, {
-            dataClass: (<any>$).pivotUtilities.SubtotalPivotData,
-            rows: ["specimenOrgan","finding"],
-            cols: ["timepoint", "dose"],
-            aggregatorName: ["Count"],
-            exclusions: {timepoint:["14"],finding:["null"]},
-            renderers: $.extend(
-              (<any>$).pivotUtilities.renderers, 
-              (<any>$).pivotUtilities.plotly_renderers,
-              (<any>$).pivotUtilities.subtotal_renderers
-            ),
-            rendererName: "Table With Subtotal",
-            rendererOptions: {
-                arrowExpanded: "[+]",
-                arrowCollapsed: "[-]",
-                rowSubtotalDisplay: {
-                    collapseAt: 0
-                },
-                colSubtotalDisplay: {
-                    collapseAt: 0
-                }
-            }
-          }
-        );
+      });
+      let data: Array<Object> = [];
+      Object.keys(obj_rows).forEach((row) => {
+        data.push(obj_rows[row]);
       });
 
 
+      $("#output").pivotUI(
+        data, {
+          dataClass: $.pivotUtilities.SubtotalPivotData,
+          rows: ["specimenOrgan","finding"],
+          cols: ["timepoint", "dose"],
+          aggregatorName: ["Count"],
+          exclusions: {timepoint:["14"],finding:["null"]},
+          renderers: $.extend(
+            $.pivotUtilities.renderers, 
+            $.pivotUtilities.plotly_renderers,
+            $.pivotUtilities.subtotal_renderers
+          ),
+          rendererName: "Table With Subtotal",
+          rendererOptions: {
+              arrowExpanded: "[+]",
+              arrowCollapsed: "[-]",
+              rowSubtotalDisplay: {
+                hideOnExpand: true,
+                displayOnTop: false
+                  
+              },
+              colSubtotalDisplay: {
 
+              }
+          }
+        }
+      );
 
     });
+    
+
+
     /* build-in test
     (<any>$("#output")).pivotUI(
       (<any>$).pivotUtilities.tipsData, {
