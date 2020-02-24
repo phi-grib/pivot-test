@@ -2,19 +2,19 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.19.
 
-## Deployment of [Plotly javascript library](https://plot.ly/javascript/) in other projects
+## Deployment of [Plotly Javascript library](https://plot.ly/javascript/) in other projects
 
 This project has the following dependences:
 
   *  [jQuery](https://jquery.com/) 3.4.1
   *  [jQuery UI](https://jqueryui.com/) 1.12.1
-  *  [Plotly javascript library](https://plot.ly/javascript/) (optional for pivot charts) 1.52.2
+  *  [Plotly Javascript library](https://plot.ly/javascript/) (optional for pivot charts) 1.52.2
   *  [Pivottable.js](https://github.com/nicolaskruchten/pivottable) 2.23.0
   *  [Subtotal](https://github.com/nicolaskruchten/pivottable) plugin for Pivottable.js 1.11.0-alpha.0
 
 For npm packages, please check dependences.txt
 
-The the required javascript files and the required order in which the should be loaded is the following:
+The the required javascript files and the required order in which they should be loaded is the following:
 1. node_modules/jquery/dist/jquery.min.js
 1. node_modules/jquery-ui-dist/jquery-ui.min.js (only for pivotUI)
 1. node_modules/plotly.js-dist/plotly.js
@@ -24,11 +24,11 @@ The the required javascript files and the required order in which the should be 
 1. node_modules/pivottable/dist/tips_data.min.js (only contains test data)
 1. node_modules/subtotal/dist/subtotal.min.js
 
-For the implemantation examples, please check src/app/app.component.ts .
+For the implementation examples, please check src/app/app.component.ts .
 
 For further information on the usage of [Pivottable.js](https://github.com/nicolaskruchten/pivottable) and [Subtotal](https://github.com/nicolaskruchten/pivottable), please check their README.md files and their wikis, both in their own GitHub pages.
 
-Other chart renderers such as D3.js, C3.js or Google Charts are shipped with [Pivottable.js](https://github.com/nicolaskruchten/pivottable), but their respective javascript plotting libraries should be installed as dependencies. 
+Other chart renderers such as D3.js, C3.js or Google Charts are shipped with [Pivottable.js](https://github.com/nicolaskruchten/pivottable), but their respective Javascript plotting libraries should be installed as dependencies. 
 
 ## Development server
 
