@@ -18,13 +18,18 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   }
   ngAfterViewInit() {
-    const url: string = 'assets/6193.json';
+    
+    const url: string = 'assets/novartis.json';
+    //const url: string = 'assets/6193.json';
     
     this.http.get(url,{withCredentials: false}).subscribe(result => {
+
+
+      
+      /*//format conversion for 'assets/6193.json'
+      
       let obj_rows: Object = {};
       let keys: Array<string> = Object.keys(result);
-      
-      //format conversion for 'assets/6193.json'
       keys.forEach(key => {
         Object.keys(result[key]).forEach((key_row) =>
         {
@@ -45,16 +50,21 @@ export class AppComponent implements OnInit, AfterViewInit {
       let data: Array<Object> = [];
       Object.keys(obj_rows).forEach((row) => {
         data.push(obj_rows[row]);
-      });
+      });*/
 
 
+      let data = result['FINDING'];
+      
+      
+      //From here pure jQuery and javascript only
+      
       $("#output").pivotUI(
         data, {
           dataClass: $.pivotUtilities.SubtotalPivotData,
           rows: ["specimenOrgan","finding"],
           cols: ["timepoint", "dose"],
           aggregatorName: ["Count"],
-          exclusions: {timepoint:["14"],finding:["null"]},
+          /*exclusions: {timepoint:["14"],finding:["null"]},*/
           renderers: $.extend(
             $.pivotUtilities.renderers, 
             $.pivotUtilities.plotly_renderers,
@@ -81,16 +91,16 @@ export class AppComponent implements OnInit, AfterViewInit {
 
 
     /* build-in test
-    (<any>$("#output")).pivotUI(
-      (<any>$).pivotUtilities.tipsData, {
+    $("#output").pivotUI(
+      $.pivotUtilities.tipsData, {
         rows: ["sex"],
         cols: ["smoker"],
         vals: ["tip", "total_bill"],
         aggregatorName: "Sum over Sum",
         rendererName: "Bar Chart",
         renderers: $.extend(
-          (<any>$).pivotUtilities.renderers, 
-          (<any>$).pivotUtilities.plotly_renderers
+          $.pivotUtilities.renderers, 
+          $.pivotUtilities.plotly_renderers
         )
       }
     );*/
